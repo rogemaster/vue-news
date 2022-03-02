@@ -11,7 +11,11 @@ export default {
         state.asks = asks;
     },
 
-    SET_USER(state, userName) {
-        state.userInfo = userName;
+    SET_USER(state, userInfo) {
+        state.userInfo = userInfo;
+    },
+
+    SET_ASKINFO(state, askInfo) {
+        state.askInfo = askInfo;
     }
 }
