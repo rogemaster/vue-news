@@ -1,34 +1,33 @@
 <template>
     <div>
         <section>
-            <!-- 질문 상세 정보 -->
-            <div>
-                <div>
-                    User
-                </div>
-                <div>
-                    <router-link :to="`/user/${fetchedAskInfo.user}`">
-                        {{ fetchedAskInfo.user }}
-                    </router-link>
-                    <div>
-                        {{ fetchedAskInfo.time_ago }}
-                    </div>
-                </div>
-                <h2>{{ fetchedAskInfo.title }}</h2>
-            </div>
+            <!-- 사용자 상세 정보 -->
+            <UserPofile :info="fetchedAskInfo">
+                <router-link slot="username" :to="`/user/${fetchedAskInfo.user}`">
+                    {{ fetchedAskInfo.user }}
+                </router-link>
+                <template slot="time">{{ 'Posted ' + fetchedAskInfo.time_ago }}</template>
+                <div slot="karma">{{ fetchedAskInfo.points }}</div>
+            </UserPofile>
+        </section>
+        <section>
+            <h2>{{ fetchedAskInfo.title }}</h2>
         </section>
         <section>
             <!-- 질문 댓글 -->
+            <div>{{ fetchedAskInfo.content }}</div>
         </section>
-        <p>{{ fetchedAskInfo.title }}</p>
-        <div>{{ fetchedAskInfo.content }}</div>
     </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
+import UserPofile from '../components/UserProfile.vue';
 
 export default {
+    components: {
+        UserPofile
+    },
     computed: {
         ...mapGetters([ 'fetchedAskInfo' ])
     },
@@ -40,6 +39,16 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.user-containwe {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+}
+.user-description {
+    padding-left: 8px;
+}
+.time {
+    font-size: 0.7rem;
+}
 </style>
