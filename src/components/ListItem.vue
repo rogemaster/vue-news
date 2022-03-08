@@ -59,25 +59,25 @@ export default {
         }
     },
     
-    created() {
-        // 비동기 통신할때 새로운 this가 생성이 됨
-        //     // es6에서 화살표 함수가 자동으로 바인딩을 해줌
-        //     // 화살표 함수가 아닌 function 함수 그대로 사용할 경우 별도로 전역 this를 바인딩 하여 상용해야 함
-        //     // ex) var vm = this;
-        //     this.$store.dispatch('FETCH_ASKS');
+    // created() {
+    //     // 비동기 통신할때 새로운 this가 생성이 됨
+    //     //     // es6에서 화살표 함수가 자동으로 바인딩을 해줌
+    //     //     // 화살표 함수가 아닌 function 함수 그대로 사용할 경우 별도로 전역 this를 바인딩 하여 상용해야 함
+    //     //     // ex) var vm = this;
+    //     //     this.$store.dispatch('FETCH_ASKS');
 
-        const name = this.$route.name;
-        let actionName;
+    //     const name = this.$route.name;
+    //     let actionName;
 
-        if(name === 'Name') {
-            actionName = 'FETCH_NEWS';
-        }else if(name === 'Ask') {
-            actionName = 'FETCH_ASKS';
-        }else if(name === 'Jobs') {
-            actionName = 'FETCH_JOBS';
-        }
-        this.$store.dispatch(actionName);
-    }
+    //     if(name === 'Name') {
+    //         actionName = 'FETCH_NEWS';
+    //     }else if(name === 'Ask') {
+    //         actionName = 'FETCH_ASKS';
+    //     }else if(name === 'Jobs') {
+    //         actionName = 'FETCH_JOBS';
+    //     }
+    //     this.$store.dispatch(actionName);
+    // }
 }
 </script>
 
