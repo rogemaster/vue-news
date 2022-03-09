@@ -43,19 +43,20 @@ export default {
     /* eslint-disable */
 
     computed: {
-        ...mapGetters([ 'fetchedNews', 'fetchedAsk', 'fetchedJobs' ]),
+        ...mapGetters([ 'fetchedNews', 'fetchedAsk', 'fetchedJobs', 'fetchedList' ]),
         // computed 속성에서 return 으로 데이터를 전달 할 경우 ESLint 에러가 (Expected to return a value in...) 발생함.
         // 이 경우 ESLint 사용을 별도로 disable 처리 해주면 오류 없이 잘 작동함.
         listItems() {
-            const name = this.$route.name;
+            return this.fetchedList;
+            // const name = this.$route.name;
 
-            if(name === 'Name') {
-                return this.fetchedNews;
-            }else if(name === 'Ask') {
-                return this.fetchedAsk;
-            }else if(name === 'Jobs') {
-                return this.fetchedJobs;
-            }
+            // if(name === 'Name') {
+            //     return this.fetchedNews;
+            // }else if(name === 'Ask') {
+            //     return this.fetchedAsk;
+            // }else if(name === 'Jobs') {
+            //     return this.fetchedJobs;
+            // }
         }
     },
     
