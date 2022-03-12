@@ -15,7 +15,7 @@ export default {
     // },
 
     FETCH_USER(context, userName) {
-        fetchUserInfo(userName)
+        return fetchUserInfo(userName)
             .then(({ data }) => {
                 context.commit('SET_USER', data);
             })
@@ -25,7 +25,7 @@ export default {
     },
 
     FETCH_ASKINFO(context, id) {
-        fetchAskInfo(id)
+        return fetchAskInfo(id)
             .then(({ data }) => {
                 context.commit('SET_ASKINFO', data);
             })
@@ -35,7 +35,7 @@ export default {
     },
 
     FETCH_LIST({ commit }, pageName) {
-        fetchList(pageName)
+        return fetchList(pageName)
             .then(({ data }) => {
                 commit('SET_LIST', data);
             })
