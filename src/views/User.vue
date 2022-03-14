@@ -1,8 +1,5 @@
 <template>
     <div>
-        <div>
-            <button @click="test">111111111111</button>
-        </div>
         <!-- props방식으로 데이터 전달 -->
         <UserProfile :info="fetchedUserInfo">
             <div slot="username">{{ fetchedUserInfo.id }}</div>
@@ -14,15 +11,12 @@
         <!-- <p>{{ fetchedUserInfo.id }}</p>
         <p>{{ fetchedUserInfo.karma }}</p>
         <p>{{ fetchedUserInfo.created }}</p> -->
-
-        <modals-container />
     </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import UserProfile from '../components/UserProfile.vue';
-import Test from '../components/test.vue'
 
 export default {
     components: {
@@ -41,16 +35,6 @@ export default {
         const userName = this.$route.params.id;
         this.$store.dispatch('FETCH_USER', userName);
     },
-
-    methods: {
-        test() {
-            this.$modal.show(Test, {
-                name: 'dynamic',
-                width : 'auto',
-                height : 'auto'
-            })
-        }
-    }
 }
 </script>
 
