@@ -10,8 +10,17 @@ function fetchUserInfo(userName) {
     return axios.get(`${config.baseUrl}user/${userName}.json`)
 }
 
-function fetchAskInfo(id) {
-    return axios.get(`${config.baseUrl}item/${id}.json`)
+async function fetchAskInfo(id) {
+    try {
+        // 코딩컨벤션에 따르면 밑에와 같이
+        // const response = await axios.get(`${config.baseUrl}item/${id}.json`);
+
+        // 일반 타입스크립트나 간략히 한다면 아래와 같이
+        return await axios.get(`${config.baseUrl}item/${id}.json`)
+    } catch (error) {
+        console.log(error);
+    }
+    
 }
 
 function fetchList(pageName) {

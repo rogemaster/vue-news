@@ -1,0 +1,6 @@
+async await 처리 시 try/catch 문으로 분기 처리
+이 경우 catch 항목에 공통 error 처리 함수를 만들어 error status에 따라
+따로 처리도 가능함
+
+Promise 이용 시 진행 할 경우에는 .then() / .catch() 이용
+async await 이용 시 try / catch 이용

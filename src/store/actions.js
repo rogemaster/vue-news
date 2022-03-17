@@ -14,34 +14,57 @@ export default {
     //         });
     // },
 
-    FETCH_USER(context, userName) {
-        return fetchUserInfo(userName)
-            .then(({ data }) => {
-                context.commit('SET_USER', data);
-            })
-            .catch(error => {
-                console.log(error);
-            })
+    // FETCH_USER(context, userName) {
+    //     return fetchUserInfo(userName)
+    //         .then(({ data }) => {
+    //             context.commit('SET_USER', data);
+    //         })
+    //         .catch(error => {
+    //             console.log(error);
+    //         })
+    // },
+
+    //async await
+    async FETCH_USER(context, userName) {
+        try {
+            const { data } = await fetchUserInfo(userName);
+            context.commit('SET_USER', data);
+            return data;
+        } catch (error) {
+            console.log(error);
+        }
     },
 
-    FETCH_ASKINFO(context, id) {
-        return fetchAskInfo(id)
-            .then(({ data }) => {
-                context.commit('SET_ASKINFO', data);
-            })
-            .catch(error => {
-                console.log(error);
-            })
+    // FETCH_ASKINFO(context, id) {
+    //     return fetchAskInfo(id)
+    //         .then(({ data }) => {
+    //             context.commit('SET_ASKINFO', data);
+    //         })
+    //         .catch(error => {
+    //             console.log(error);
+    //         })
+    // },
+
+    async FETCH_ASKINFO(context, id) {
+        const { data } = await fetchAskInfo(id);
+        context.commit('SET_ASKINFO', data);
+        return data;
     },
 
-    FETCH_LIST({ commit }, pageName) {
-        return fetchList(pageName)
-            .then(({ data }) => {
-                commit('SET_LIST', data);
-                return data;
-            })
-            .catch(error => {
-                console.log(error);
-            })
+    // FETCH_LIST({ commit }, pageName) {
+    //     return fetchList(pageName)
+    //         .then(({ data }) => {
+    //             commit('SET_LIST', data);
+    //             return data;
+    //         })
+    //         .catch(error => {
+    //             console.log(error);
+    //         })
+    // }
+
+    async FETCH_LIST({ commit }, pageName) {
+        const { data } = await fetchList(pageName);
+        commit('SET_LIST', data);
+        return data;
     }
 }
