@@ -53,6 +53,11 @@ export const router = new VueRouter({
             component: createListView('Jobs'),
         },
         {
+            path: '/chart',
+            name: 'chart',
+            component: () => import('@/views/Chart.vue'),
+        },
+        {
             path: '/user/:id',
             component: User,
         },
