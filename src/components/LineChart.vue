@@ -3,12 +3,10 @@
 </template>
 
 <script>
-import Chart from 'chart.js';
-
 export default {
     mounted() {
         const ctx = this.$refs.lineChart;
-        const lineChart = new Chart(ctx, {
+        const lineChart = new this.$_Chart(ctx, {
             type: 'line',
             data: {
                 labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
