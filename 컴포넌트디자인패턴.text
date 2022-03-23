@@ -16,3 +16,12 @@ render function--
          loading: this.loading,
      })
  }
+
+ render: function(createElement) {
+     return createElement('태그 이름', '태그 속성', '하위 태그 내용')
+ }
+
+ ex)
+ render: function(createElement) {
+     return createElement('p', 'Hello Vue')
+ }
